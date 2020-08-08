@@ -2,7 +2,7 @@ FROM jenkins/jenkins
 
 USER root
 
-RUN apt-get update && \ 
+RUN apt-get -y update && \ 
    apt-get -y install apt-transport-https \
    ca-certificates \
    curl \
@@ -13,7 +13,7 @@ RUN apt-get update && \
 # install Docker
 
 RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
-   add-apt-repository \
+   add-apt-repository -y \
    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
    $(lsb_release -cs) \
    stable" && \
