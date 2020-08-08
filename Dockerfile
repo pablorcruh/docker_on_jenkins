@@ -6,19 +6,18 @@ RUN apt-get -y update && \
    apt-get -y install apt-transport-https \
    ca-certificates \
    curl \
-   gnupg \ 
-   gpgv \
+   gnupg-agent \
    software-properties-common 
 
 # install Docker
 
-RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg > /tmp/dkey; apt-key add /tmp/dkey && \
-   add-apt-repository -y \
-   "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+RUN sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
 
-RUN apt-get -y install docker-ce   
+RUN apt-get -y install install docker-ce docker-ce-cli containerd.io
+   
 
 # install Docker Compose
 
