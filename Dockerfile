@@ -18,7 +18,9 @@ RUN add-apt-repository \
 
 ADD https://get.docker.com  .
 
-RUN sh get-docker.sh
+RUN chmod +x get-docker.sh 
+
+CMD ["sh", "get-docker.sh"]
 
 # install Docker Compose
 
