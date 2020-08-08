@@ -11,10 +11,8 @@ RUN apt-get -y update && \
 
 # install Docker
 
-RUN sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+RUN add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 RUN apt-get -y install install docker-ce docker-ce-cli containerd.io
    
