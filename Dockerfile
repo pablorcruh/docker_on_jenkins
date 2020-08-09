@@ -30,4 +30,6 @@ RUN usermod -aG docker jenkins
 
 # install heroku cli
 
-RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+RUN curl https://cli-assets.heroku.com/install-ubuntu.sh
+
+CMD ["sh", "install-ubuntu.sh"]
